@@ -20,6 +20,18 @@ web ini. Saat online, tombol Putar audio mencoba audio lokal atau file Pages
 terlebih dahulu, lalu tautan audio publik artikel tersebut. Jika keduanya
 gagal, tautan ke artikel sumber tersedia pada pemutar.
 
+Audio latar dan tema
+Sakelar Putar di latar belakang ada di setiap halaman materi. Saat dimatikan,
+audio dijeda ketika browser menyembunyikan tab. Saat dinyalakan, browser
+dapat tetap memutar audio selama perangkat mengizinkan. Pilihan sakelar
+dan tema terang atau gelap disimpan di browser.
+
+Ekspor audio
+Klik Ekspor file audio di halaman materi atau pada rekaman di menu Audio
+offline. File masuk ke alur unduhan browser. Cek Unduhan atau aplikasi Files
+pada HP. Ekspor dari Audio offline bisa dilakukan tanpa internet. Ekspor
+langsung dari server audio eksternal bergantung pada izin sumber.
+
 Simpan offline di GitHub Pages
 Saat audio berhasil dimuat, pilih Simpan offline untuk menyimpan rekaman di
 browser setelah mengonfirmasi Simpan. Buka Audio offline dari halaman awal
