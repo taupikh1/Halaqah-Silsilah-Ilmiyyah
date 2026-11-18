@@ -6,6 +6,13 @@ untuk mengikuti arsip sumber dari halaman 1 sampai 477, atau Terlama untuk
 memulai dari ujung arsip. Pencarian judul, transkrip, dan filter seri berjalan
 secara lokal. Tombol lanjut di halaman materi mengikuti nomor dalam serinya.
 
+Fitur membaca
+Pencarian di Daftar materi mencakup seluruh koleksi. Di halaman materi,
+Cari di halaman ini menyorot kata pada teks. Gunakan tombol panah untuk
+berpindah antarhasil. Tandai materi favorit atau selesai dari halaman
+materi. Pintasan Lanjutkan baca membuka materi dan posisi terakhir.
+Status ini disimpan di browser yang sama.
+
 Audio
 Ekstrak ZIP Audio-Halaqah yang sudah tersedia ke folder yang sama. Gabungkan
 isi folder audio/ di samping index.html. File MP3 lama tetap cocok dengan versi
@@ -15,7 +22,9 @@ gagal, tautan ke artikel sumber tersedia pada pemutar.
 
 Simpan offline di GitHub Pages
 Saat audio berhasil dimuat, pilih Simpan offline untuk menyimpan rekaman di
-browser. Untuk sumber eksternal, penyimpanan bergantung pada izin server
+browser setelah mengonfirmasi Simpan. Buka Audio offline dari halaman awal
+untuk melihat ukuran dan menghapus satu atau semua rekaman.
+Untuk sumber eksternal, penyimpanan bergantung pada izin server
 sumber. Bukalah web minimal sekali saat online agar browser menyimpan
 halaman untuk dibuka kembali tanpa jaringan.
 

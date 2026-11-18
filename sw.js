@@ -1,7 +1,7 @@
 const shellCache = 'halaqah-web-v2';
 const shell = new URL('index.html', self.registration.scope).href;
 self.addEventListener('install', event => {
-  event.waitUntil(caches.open(shellCache).then(cache => cache.add(shell)).then(() => self.skipWaiting()));
+  event.waitUntil(caches.open(shellCache).then(cache => cache.add(new Request(shell, {cache:'reload'}))).then(() => self.skipWaiting()));
 });
 self.addEventListener('activate', event => event.waitUntil(self.clients.claim()));
 self.addEventListener('fetch', event => {
