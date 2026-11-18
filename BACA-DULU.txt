@@ -1,0 +1,21 @@
+PUSTAKA HALAQAH SILSILAH ILMIYYAH
+
+Baca offline
+Ekstrak ZIP web ke satu folder. Buka index.html di browser. Pencarian judul dan
+isi transkrip, filter seri, dan navigasi 477 halaman berjalan secara lokal.
+
+Tambah audio offline
+Ekstrak ZIP Audio-Halaqah ke folder yang sama. Gabungkan folder audio dari
+setiap ZIP sehingga file .mp3 berada di dalam audio/ di samping index.html.
+Buka kembali index.html. Pemutar muncul pada materi dengan rekaman yang berhasil
+diarsipkan. Tautan artikel sumber tetap dapat dibuka dengan internet.
+
+GitHub Pages
+Masukkan isi ZIP web ke root branch yang dipakai Pages. Sertakan .nojekyll dan
+folder images bersama index.html. Pilih branch dan / (root) di Settings → Pages.
+Paket audio berukuran beberapa GB, melampaui batas ukuran situs GitHub Pages 1 GB.
+Gunakan ZIP web untuk Pages dan simpan paket audio lengkap untuk penggunaan lokal.
+
+Sumber
+https://ilmiyyah.com/archives/category/halaqah-silsilah-ilmiyah
+Judul dan transkrip mengikuti artikel sumber yang ditautkan di setiap materi.
