@@ -54,3 +54,30 @@ lengkap lebih besar dari batas ukuran situs GitHub Pages.
 
 Sumber
 https://ilmiyyah.com/archives/category/halaqah-silsilah-ilmiyah
+
+Pembaruan materi otomatis
+Workflow Sinkron Materi Ilmiyyah berjalan pada menit ke-01 setiap jam.
+Repo yang memakai workflow ini perlu Settings → Pages → GitHub Actions.
+Untuk uji pertama atau sinkron segera, buka Actions → Sinkron Materi
+Ilmiyyah → Run workflow. Pilih branch utama.
+
+Cek materi terbaru di halaman awal membuka revisi terakhir di GitHub Pages.
+Kalau workflow masih berjalan, materi baru muncul setelah deploy berhasil.
+Saat offline, versi terakhir yang sudah tersimpan masih bisa dibuka.
+
+Tema
+Pilih Terang, Gelap, atau AMOLED di header. AMOLED memakai dasar hitam
+pekat. Tema dan data bacaan tersimpan di browser yang sama.
+
+Pasang v5 di repo yang sudah tayang
+Ganti index.html, sw.js, updates.json, Katalog.csv dan BACA-DULU.txt di root.
+Pastikan scripts/sync.py, .github/workflows/sinkron-halaqah.yml dan file
+.nojekyll ikut masuk ke branch utama. Folder images dan audio dari repo
+yang sudah ada tetap dibutuhkan.
+
+Kalau pengelola file HP menyembunyikan folder .github, gunakan GitHub
+Add file → Create new file. Masukkan .github/workflows/sinkron-halaqah.yml
+sebagai nama file dan salin isi YAML dari paket. Untuk .nojekyll, buat file
+tersebut di root. File ini boleh diberi satu baris kosong.
+Setelah workflow ada di branch utama, pilih Pages → Source → GitHub Actions,
+lalu jalankan Sinkron Materi Ilmiyyah secara manual untuk deploy pertama.

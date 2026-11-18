@@ -1,7 +1,8 @@
-<!doctype html><html lang="id"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#123f34"><title>Halaqah Silsilah Ilmiyyah</title>
+<!doctype html><html lang="id"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#123f34"><meta name="halaqah-version" content="ab7bb7268f1369ff7224"><title>Halaqah Silsilah Ilmiyyah</title>
 <script>
 try {
-  if (localStorage.getItem('halaqah-theme') === 'dark') document.documentElement.dataset.theme = 'dark';
+  const theme = localStorage.getItem('halaqah-theme');
+  if (['dark','amoled'].includes(theme)) document.documentElement.dataset.theme = theme;
 } catch {}
 </script>
 <style>
@@ -30,14 +31,33 @@ mark.find-hit{background:#ffe88a;color:var(--text)}mark.find-current{background:
 dialog{width:min(430px,calc(100% - 32px));border:1px solid var(--input-border);border-radius:13px;padding:20px;color:var(--text);background:var(--background)}dialog::backdrop{background:#0a251bac}dialog h2{margin-top:0}dialog form{justify-content:flex-end;margin-bottom:0}.primary{background:var(--accent);color:var(--header-text)}.danger{color:var(--danger)}
 @media(max-width:520px){.shortcuts{grid-template-columns:1fr;gap:7px}.shortcut{padding:9px 12px}.shortcut small{margin-top:0}.findcontrols input{font-size:16px}}
 mark.find-hit{color:#233931}mark.find-current{color:#211c12}
+[data-theme=amoled]{color-scheme:dark;--background:#000;--text:#eff5f1;--header:#000;--header-text:#eef8f2;--link:#a7e3c6;--border:#545e58;--surface:#0c0f0d;--accent:#b9efd0;--header-border:#68776e;--input-border:#727c76;--line:#38423b;--hover:#91cea9;--heading:#f1f8f3;--muted:#b7c4bc;--selected:#152a1f;--selected-border:#65927a;--danger:#ffc0bd}
+[data-theme=amoled] .primary{color:#111c15}
+:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+header{border-bottom:1px solid var(--header-border);align-items:center;padding-block:13px}
+header b{font:700 clamp(17px,3.8vw,22px)/1.2 system-ui,sans-serif;letter-spacing:-.025em}
+header a:focus-visible,.theme-picker select:focus-visible{outline-color:var(--header-text)}
+.header-actions{justify-content:flex-end}
+.theme-picker select{height:44px;background:var(--header);color:var(--header-text);border-color:var(--header-border);padding:6px;border-radius:7px}
+.intro{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;margin-bottom:22px}
+.intro h1{letter-spacing:-.035em;margin-top:0;margin-bottom:10px}
+.intro p{margin:0}.refresh-box{flex:none;max-width:270px}
+.refresh-box button{font-weight:650}.refresh-box #refresh-status{font-size:.875rem;margin-top:6px}
+#summary{color:var(--muted)}
+.shortcuts{margin:0 0 22px;gap:10px}.shortcut{border-radius:12px;padding:12px 15px}
+.shortcuts a:hover{border-color:var(--hover)}
+.filters{padding:15px;border-radius:12px;background:var(--surface);border:1px solid var(--line)}
+.filters #jump{margin:12px 0 0}
+@media(max-width:620px){.intro{display:block;margin-bottom:17px}.refresh-box{margin-top:12px;max-width:none}}
+@media(max-width:380px){header{padding-inline:12px;gap:7px}.header-actions{gap:5px}.header-actions a,.theme-picker select{font-size:14px}}
 </style>
-<header><b>Pustaka Halaqah</b><div class="header-actions"><a href="#koleksi">Daftar materi</a><button id="theme-toggle" type="button"></button></div></header><main>
-<section id="library"><h1>Halaqah Silsilah Ilmiyyah</h1><p id="summary"></p><nav class="shortcuts" aria-label="Pintasan">
+<header><b>Pustaka Halaqah</b><div class="header-actions"><a href="#koleksi">Daftar materi</a><div class="theme-picker"><select id="theme-toggle" aria-label="Tema"><option value="light">Terang</option><option value="dark">Gelap</option><option value="amoled">AMOLED</option></select></div></div></header><main>
+<section id="library"><div class="intro"><div><h1>Halaqah Silsilah Ilmiyyah</h1><p id="summary"></p></div><div class="refresh-box"><button id="refresh-material" type="button">Cek materi terbaru</button><p id="refresh-status" class="muted" role="status"></p></div></div><nav class="shortcuts" aria-label="Pintasan">
 <div id="resume-card" class="shortcut"><strong>Lanjutkan baca</strong><small>Belum ada riwayat baca.</small></div>
 <a class="shortcut" href="#favorit"><strong>Favorit</strong><small id="favorite-summary"></small></a>
 <a class="shortcut" href="#audio-offline"><strong>Audio offline</strong><small>Kelola rekaman tersimpan</small></a>
-</nav><div class="tools"><label>Cari materi<input id="query" type="search" placeholder="Judul, isi transkrip, atau nama seri"></label><label>Seri kajian<select id="series"><option value="">Semua seri</option></select></label><label>Urutan<select id="order"><option value="newest">Terbaru</option><option value="oldest">Terlama</option></select></label></div>
-<form id="jump"><label for="pg">Nomor halaman</label><input id="pg" type="number" min="1" max="477" value="1" required><button>Buka</button><button type="button" id="reset">Reset</button></form><p id="count" aria-live="polite"></p><p id="series-progress" class="muted" hidden></p><div id="rows" class="results"></div><nav class="pagination" aria-label="Halaman daftar"><button id="prev">← Sebelumnya</button><span id="pos"></span><button id="next">Berikutnya →</button></nav></section>
+</nav><div class="filters"><div class="tools"><label>Cari materi<input id="query" type="search" placeholder="Judul, isi transkrip, atau nama seri"></label><label>Seri kajian<select id="series"><option value="">Semua seri</option></select></label><label>Urutan<select id="order"><option value="newest">Terbaru</option><option value="oldest">Terlama</option></select></label></div>
+<form id="jump"><label for="pg">Nomor halaman</label><input id="pg" type="number" min="1" max="477" value="1" required><button>Buka</button><button type="button" id="reset">Reset</button></form></div><p id="count" aria-live="polite"></p><p id="series-progress" class="muted" hidden></p><div id="rows" class="results"></div><nav class="pagination" aria-label="Halaman daftar"><button id="prev">← Sebelumnya</button><span id="pos"></span><button id="next">Berikutnya →</button></nav></section>
 <section class="reader" id="reader" hidden><a id="back" href="#koleksi">← Kembali ke daftar</a><section class="findbar" aria-label="Pencarian halaman"><label for="reader-query">Cari di halaman ini</label><div class="findcontrols"><input id="reader-query" type="search" placeholder="Contoh: kitab"><button id="find-prev" aria-label="Hasil sebelumnya" disabled>↑</button><button id="find-next" aria-label="Hasil berikutnya" disabled>↓</button></div><output id="find-count" aria-live="polite"></output></section>
 <p class="muted" id="topic"></p><h1 id="title"></h1><div id="reader-actions"><button id="favorite-toggle" aria-pressed="false"></button><button id="completed-toggle" aria-pressed="false"></button></div><div id="sound"></div><article id="body" class="body"></article><nav id="neighbors"></nav><a id="source" target="_blank" rel="noopener">Buka artikel sumber ↗</a></section><section id="saved-view" hidden><a href="#koleksi">← Kembali ke daftar</a><h1 id="saved-title"></h1><p id="saved-summary" role="status"></p><div id="audio-notice" class="muted" role="status"></div><p><button id="delete-all" class="danger" hidden>Hapus semua audio offline</button></p><div id="saved-rows" class="results"></div></section>
 <dialog id="confirm" aria-labelledby="confirm-title" aria-describedby="confirm-message"><h2 id="confirm-title"></h2><p id="confirm-message"></p><form method="dialog"><button value="cancel" autofocus>Batal</button><button value="yes" class="primary" id="confirm-action"></button></form></dialog>
@@ -699,18 +719,17 @@ el('delete-all').onclick = async () => {
   await deleteAudio();
 };
 
-function applyTheme(dark) {
-  document.documentElement.dataset.theme = dark ? 'dark' : 'light';
-  document.querySelector('meta[name="theme-color"]').content = dark ? '#102b24' : '#123f34';
-  const button = el('theme-toggle');
-  button.textContent = dark ? 'Tema gelap' : 'Tema terang';
-  button.setAttribute('aria-label', dark ? 'Aktifkan tema terang' : 'Aktifkan tema gelap');
+const headerColors = {light:'#123f34', dark:'#102b24', amoled:'#000000'};
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  document.querySelector('meta[name="theme-color"]').content = headerColors[theme];
+  el('theme-toggle').value = theme;
 }
-applyTheme(document.documentElement.dataset.theme === 'dark');
-el('theme-toggle').onclick = () => {
-  const dark = document.documentElement.dataset.theme !== 'dark';
-  applyTheme(dark);
-  try { localStorage.setItem('halaqah-theme', dark ? 'dark' : 'light'); } catch {}
+applyTheme(document.documentElement.dataset.theme || 'light');
+el('theme-toggle').onchange = event => {
+  const theme = event.target.value;
+  applyTheme(theme);
+  try { localStorage.setItem('halaqah-theme', theme); } catch {}
 };
 
 async function audioResponse(address) {
@@ -748,6 +767,42 @@ async function exportAudioFile(response, book) {
   setTimeout(() => URL.revokeObjectURL(url), 60000);
 }
 
+
+el('refresh-material').onclick = async () => {
+  const button = el('refresh-material');
+  const status = el('refresh-status');
+  if (location.protocol === 'file:' || !navigator.onLine) {
+    status.textContent = 'Buka web GitHub Pages dengan internet untuk cek pembaruan.';
+    return;
+  }
+  button.disabled = true;
+  status.textContent = 'Mengecek versi di GitHub Pages…';
+  try {
+    const manifest = new URL('updates.json', location.href);
+    manifest.searchParams.set('check', Date.now());
+    const response = await fetch(manifest, {cache:'no-store', signal:AbortSignal.timeout(15000)});
+    if (!response.ok) throw Error('Versi tidak tersedia');
+    const {revision, count} = await response.json();
+    if (!/^[a-f0-9]{20}$/.test(revision) || !Number.isInteger(count) || count < books.length) {
+      throw Error('Versi tidak valid');
+    }
+    const current = document.querySelector('meta[name="halaqah-version"]').content;
+    if (current === revision) {
+      status.textContent = 'Versi terbaru sudah terbuka.';
+      return;
+    }
+    status.textContent = 'Memuat arsip terbaru…';
+    const update = new URL('index.html', location.href);
+    update.searchParams.set('rev', revision);
+    update.hash = 'koleksi';
+    if (update.href === location.href) throw Error('Publikasi masih berjalan');
+    location.replace(update.href);
+  } catch {
+    status.textContent = 'Pembaruan belum bisa dicek. Materi yang ada tetap bisa dibaca.';
+  } finally {
+    button.disabled = false;
+  }
+};
 
 window.addEventListener('hashchange', show);
 show();
