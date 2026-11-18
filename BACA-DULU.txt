@@ -1,21 +1,35 @@
 PUSTAKA HALAQAH SILSILAH ILMIYYAH
 
 Baca offline
-Ekstrak ZIP web ke satu folder. Buka index.html di browser. Pencarian judul dan
-isi transkrip, filter seri, dan navigasi 477 halaman berjalan secara lokal.
+Ekstrak ZIP web ke satu folder. Buka index.html di browser. Pilih Terbaru
+untuk mengikuti arsip sumber dari halaman 1 sampai 477, atau Terlama untuk
+memulai dari ujung arsip. Pencarian judul, transkrip, dan filter seri berjalan
+secara lokal. Tombol lanjut di halaman materi mengikuti nomor dalam serinya.
 
-Tambah audio offline
-Ekstrak ZIP Audio-Halaqah ke folder yang sama. Gabungkan folder audio dari
-setiap ZIP sehingga file .mp3 berada di dalam audio/ di samping index.html.
-Buka kembali index.html. Pemutar muncul pada materi dengan rekaman yang berhasil
-diarsipkan. Tautan artikel sumber tetap dapat dibuka dengan internet.
+Audio
+Ekstrak ZIP Audio-Halaqah yang sudah tersedia ke folder yang sama. Gabungkan
+isi folder audio/ di samping index.html. File MP3 lama tetap cocok dengan versi
+web ini. Saat online, tombol Putar audio mencoba audio lokal atau file Pages
+terlebih dahulu, lalu tautan audio publik artikel tersebut. Jika keduanya
+gagal, tautan ke artikel sumber tersedia pada pemutar.
 
-GitHub Pages
-Masukkan isi ZIP web ke root branch yang dipakai Pages. Sertakan .nojekyll dan
-folder images bersama index.html. Pilih branch dan / (root) di Settings → Pages.
-Paket audio berukuran beberapa GB, melampaui batas ukuran situs GitHub Pages 1 GB.
-Gunakan ZIP web untuk Pages dan simpan paket audio lengkap untuk penggunaan lokal.
+Simpan offline di GitHub Pages
+Saat audio berhasil dimuat, pilih Simpan offline untuk menyimpan rekaman di
+browser. Untuk sumber eksternal, penyimpanan bergantung pada izin server
+sumber. Bukalah web minimal sekali saat online agar browser menyimpan
+halaman untuk dibuka kembali tanpa jaringan.
+
+Pasang pembaruan di repo yang sudah ada
+Ekstrak ZIP Pembaruan. Ganti index.html dan tambahkan sw.js ke direktori
+yang sama di repo. Folder images/ dan audio/ yang sudah terpasang bisa
+dipakai kembali. Untuk pemasangan baru, gunakan isi ZIP Web di root branch
+yang dipakai oleh GitHub Pages. Sertakan .nojekyll.
+
+Menambahkan audio ke repo
+Untuk materi yang memiliki file MP3, folder audio/ dari paket asli bisa
+digunakan. Untuk menambahkan audio secara manual, simpan ke audio/ID.mp3,
+misalnya audio/13262.mp3. ID tiap materi ada di Katalog.csv. Paket audio
+lengkap lebih besar dari batas ukuran situs GitHub Pages.
 
 Sumber
 https://ilmiyyah.com/archives/category/halaqah-silsilah-ilmiyah
-Judul dan transkrip mengikuti artikel sumber yang ditautkan di setiap materi.
