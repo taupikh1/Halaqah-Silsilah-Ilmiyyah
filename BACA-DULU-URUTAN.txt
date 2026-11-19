@@ -1,0 +1,11 @@
+PEMBARUAN URUTAN HALAQAH
+Berdasarkan arsip repo yang memuat 1.432 materi hingga Halaqah 123.
+
+Unggah index.html, updates.json, dan Katalog.csv ke root branch main.
+Setelah commit, buka Actions → Sinkron Materi Ilmiyyah → Run workflow.
+Workflow akan membawa materi terbaru dari sumber ikut saat deploy.
+Setelah run berhasil, tekan Cek materi terbaru di halaman awal.
+
+Pilih seri untuk mulai dari nomor kecil. Pilih Nomor besar dulu bila perlu.
+Daftar semua seri tetap memakai urutan terbit arsip sumber. Di halaman
+materi, tombol Berikutnya mengikuti nomor dalam rangkaian yang sama.
